@@ -11,6 +11,7 @@ export class CsvFileReader implements DataReader {
       encoding: "utf-8"
     })
       .split("\n")
+      .filter(Boolean)
       .map((record: string): string[] => record.split(","))
   }
 }
