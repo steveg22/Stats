@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { CsvFileReader } from "./CsvFileReader";
+=======
+import { AverageGoalAnalysis } from "./AverageGoalAnalysis";
+import { ConsoleReport } from "./ConsoleReport";
+>>>>>>> 72db109 (Add analyser and output interface)
 import { MatchReader } from "./MatchReader";
 import { MatchResult } from "./MatchResult";
+import { Summary } from "./Summary";
 
 const team = "Man United";
 let wins = 0;
@@ -15,3 +21,10 @@ for (let record of matchReader.matches) {
 }
 
 console.log(team, "has won", wins, "times");
+
+const averageGoals = new AverageGoalAnalysis();
+const consoleLogger = new ConsoleReport();
+
+const summary = new Summary(averageGoals, consoleLogger);
+summary.buildAndPrintReport(reader.data);
+
